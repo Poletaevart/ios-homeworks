@@ -11,9 +11,6 @@ class ProfileViewController: UIViewController{
     override func viewDidLoad() {
 
             super.viewDidLoad()
-
-            // Задаем фоновый цвет
-
             view.backgroundColor = .yellow
 
     }

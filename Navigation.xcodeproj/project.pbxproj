@@ -17,6 +17,7 @@
 		5C8C2EB3287EDC9E00E68583 /* NavigationUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C8C2EB2287EDC9E00E68583 /* NavigationUITestsLaunchTests.swift */; };
 		5CAD042F28832D940061A48B /* FeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CAD042E28832D940061A48B /* FeedViewController.swift */; };
 		5CAD043128832DA50061A48B /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CAD043028832DA50061A48B /* ProfileViewController.swift */; };
+		5CAD0433288342200061A48B /* PostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CAD0432288342200061A48B /* PostViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +52,7 @@
 		5C8C2EB2287EDC9E00E68583 /* NavigationUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		5CAD042E28832D940061A48B /* FeedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedViewController.swift; sourceTree = "<group>"; };
 		5CAD043028832DA50061A48B /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		5CAD0432288342200061A48B /* PostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,6 +108,7 @@
 				5C8C2E93287EDC9B00E68583 /* ViewController.swift */,
 				5CAD042E28832D940061A48B /* FeedViewController.swift */,
 				5CAD043028832DA50061A48B /* ProfileViewController.swift */,
+				5CAD0432288342200061A48B /* PostViewController.swift */,
 				5C8C2E98287EDC9D00E68583 /* Assets.xcassets */,
 				5C8C2E9A287EDC9D00E68583 /* LaunchScreen.storyboard */,
 				5C8C2E9D287EDC9D00E68583 /* Info.plist */,
@@ -260,6 +263,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5CAD0433288342200061A48B /* PostViewController.swift in Sources */,
 				5C8C2E94287EDC9B00E68583 /* ViewController.swift in Sources */,
 				5C8C2E90287EDC9B00E68583 /* AppDelegate.swift in Sources */,
 				5CAD043128832DA50061A48B /* ProfileViewController.swift in Sources */,
