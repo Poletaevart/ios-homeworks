@@ -15,7 +15,7 @@ class PostViewController: UIViewController{
 
             super.viewDidLoad()
 
-            self.view.backgroundColor = .lightGray
+            self.view.backgroundColor = .white
         
         self.navigationItem.title = titlePost
         
