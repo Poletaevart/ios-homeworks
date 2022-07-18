@@ -18,6 +18,19 @@ class PostViewController: UIViewController{
             self.view.backgroundColor = .lightGray
         
         self.navigationItem.title = titlePost
-    
-        }
+        
+        configureItems()
+       
+        
+    }
+    private func configureItems(){
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(self.buttonAction))
+        
+    }
+    @objc func buttonAction(){
+        let vc = InfoViewController()
+        self.navigationController?.pushViewController(vc, animated: true)
+    }
+
 }
+

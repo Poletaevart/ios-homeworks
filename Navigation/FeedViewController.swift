@@ -33,9 +33,7 @@ class FeedViewController: UIViewController{
     
     @objc private func didTapButton() {
         let postViewController = PostViewController()
-        //postViewController.modalPresentationStyle = .
-        //self.present(postViewController, animated: true)
-        postViewController.titlePost = post.title
         self.navigationController?.pushViewController(postViewController, animated: true)
+        postViewController.titlePost = post.title
     }
 }
