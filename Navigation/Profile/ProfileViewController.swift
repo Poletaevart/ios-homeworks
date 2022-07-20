@@ -14,5 +14,11 @@ class ProfileViewController:UIViewController{
         super.viewDidLoad()
 
         self.view.backgroundColor = .lightGray
+        
+        self.navigationItem.title = "Profile"
+        
+        
+    
     }
 }
+
