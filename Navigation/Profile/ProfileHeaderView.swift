@@ -21,7 +21,7 @@ class ProfileHeaderView:UIView{
     
     private lazy var textLabel: UILabel = {
         let textLabel = UILabel(frame: CGRect(x: 218, y: 111, width: 200, height: 100))
-        textLabel.text = "Pro Barber"
+        textLabel.text = "Hipster Cat"
         textLabel.textColor = .black
         textLabel.font = UIFont.systemFont(ofSize: 18, weight: .bold)
         return textLabel
