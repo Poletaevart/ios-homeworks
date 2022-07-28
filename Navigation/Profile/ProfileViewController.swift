@@ -9,16 +9,21 @@ import UIKit
 
 class ProfileViewController:UIViewController{
     
-    override func viewDidLoad() {
-        
-        super.viewDidLoad()
-
+    private lazy var profileHeaderView: ProfileHeaderView = {
+        let profileHeaderView = ProfileHeaderView(frame: .zero)
         self.view.backgroundColor = .lightGray
+        return profileHeaderView
+    }()
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
         
         self.navigationItem.title = "Profile"
+        self.view.addSubview(self.profileHeaderView)
         
-        
-    
     }
+    override func viewWillLayoutSubviews() {
+            super.viewWillLayoutSubviews()
+    self.profileHeaderView.frame = CGRect()
+        }
 }
-
