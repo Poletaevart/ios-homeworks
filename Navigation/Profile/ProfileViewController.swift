@@ -20,8 +20,8 @@ class ProfileViewController:UIViewController{
         
         self.navigationItem.title = "Profile"
         self.view.addSubview(self.profileHeaderView)
-        
     }
+    
     override func viewWillLayoutSubviews() {
             super.viewWillLayoutSubviews()
     self.profileHeaderView.frame = CGRect(x: 0,y: 100,width: self.view.bounds.width,height:self.view.bounds.height)
