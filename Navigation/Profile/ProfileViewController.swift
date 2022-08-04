@@ -23,7 +23,7 @@ class ProfileViewController:UIViewController{
     }
     
     override func viewWillLayoutSubviews() {
-            super.viewWillLayoutSubviews()
-    self.profileHeaderView.frame = CGRect(x: 0,y: 100,width: self.view.bounds.width,height:self.view.bounds.height)
-        }
+        super.viewWillLayoutSubviews()
+        self.profileHeaderView.frame = CGRect(x: 0,y: 100,width: self.view.bounds.width,height:self.view.bounds.height)
+    }
 }

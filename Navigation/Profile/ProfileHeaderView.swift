@@ -45,7 +45,7 @@ class ProfileHeaderView:UIView{
         textFild.backgroundColor = .white
         textFild.addTarget(self, action: #selector(statusTextChanged), for: .editingChanged)
         return textFild
-        }()
+    }()
     
     private lazy var button: UIButton = {
         let button = UIButton(frame: CGRect(x: 16, y: 206, width: 380, height: 50))
@@ -76,20 +76,20 @@ class ProfileHeaderView:UIView{
         self.addSubview(self.statusTextLabel)
         self.addSubview(self.textFild)
         self.addSubview(self.button)
-    
+        
     }
     
     @objc func buttonPressed(){
         if let text = statusTextLabel.text {
-        print(text)}
+            print(text)}
         else {
-        print("текущее поле пустое")}
+            print("текущее поле пустое")}
         statusTextLabel.text = statusText
-}
+    }
     
     @objc func statusTextChanged(_ textField: UITextField){
-        statusText = textField.text!
+        statusText = textField.text ?? ""
     }
     private var statusText:String = ""
-
+    
 }
