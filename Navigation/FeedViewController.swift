@@ -17,7 +17,7 @@ class FeedViewController: UIViewController{
         self.view.backgroundColor = .white
         self.view.addSubview(self.button)
         self.button.center = self.view.center
-        self.navigationItem.title = "Лента"
+        self.navigationItem.title = "Feed"
        
 
     }
