@@ -116,7 +116,7 @@ class ProfileHeaderView:UIView{
         if let text = statusTextLabel.text {
             print(text)}
         else {
-            print("текущее поле пустое")}
+            print("текущее поле пустое 0")}
         statusTextLabel.text = statusText
     }
     
