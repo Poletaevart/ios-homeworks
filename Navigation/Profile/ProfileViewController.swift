@@ -10,8 +10,9 @@ import UIKit
 class ProfileViewController:UIViewController{
     
     private lazy var profileHeaderView: ProfileHeaderView = {
-        let profileHeaderView = ProfileHeaderView(frame: .zero)
+        let profileHeaderView = ProfileHeaderView()
         self.view.backgroundColor = .lightGray
+        profileHeaderView.translatesAutoresizingMaskIntoConstraints = false
         return profileHeaderView
     }()
     
@@ -20,10 +21,13 @@ class ProfileViewController:UIViewController{
         
         self.navigationItem.title = "Profile"
         self.view.addSubview(self.profileHeaderView)
+        NSLayoutConstraint.activate([
+            profileHeaderView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+            profileHeaderView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            profileHeaderView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            profileHeaderView.heightAnchor.constraint(equalToConstant: 220)])
+        
     }
     
-    override func viewWillLayoutSubviews() {
-        super.viewWillLayoutSubviews()
-        self.profileHeaderView.frame = CGRect(x: 0,y: 100,width: self.view.bounds.width,height:self.view.bounds.height)
-    }
+    
 }
