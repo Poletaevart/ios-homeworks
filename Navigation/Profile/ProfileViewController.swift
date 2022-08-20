@@ -16,6 +16,20 @@ class ProfileViewController:UIViewController{
         return profileHeaderView
     }()
     
+    private lazy var newTitleButton: UIButton = {
+            let button = UIButton()
+            button.setTitle("New title", for: .normal)
+            button.setTitleColor(.white , for: .normal)
+            button.backgroundColor = .systemBlue
+            button.layer.shadowOffset = CGSize(width: 4, height: 4)
+            button.layer.shadowColor = CGColor(red: 0, green: 0, blue: 0, alpha: 1)
+            button.layer.shadowOpacity = 0.7
+            button.layer.shadowRadius = 4
+            button.layer.cornerRadius = 4
+            button.translatesAutoresizingMaskIntoConstraints = false
+            return button
+        }()
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -35,24 +49,5 @@ class ProfileViewController:UIViewController{
             newTitleButton.heightAnchor.constraint(equalToConstant: 50)
         
         ])
-        
-        
-        
     }
-    
-    private lazy var newTitleButton: UIButton = {
-        let button = UIButton()
-        button.setTitle("New title", for: .normal)
-        button.setTitleColor(.white , for: .normal)
-        button.backgroundColor = .systemBlue
-        button.layer.shadowOffset = CGSize(width: 4, height: 4)
-        button.layer.shadowColor = CGColor(red: 0, green: 0, blue: 0, alpha: 1)
-        button.layer.shadowOpacity = 0.7
-        button.layer.shadowRadius = 4
-        button.layer.cornerRadius = 4
-        button.translatesAutoresizingMaskIntoConstraints = false
-        return button
-    }()
-    
-    
 }
