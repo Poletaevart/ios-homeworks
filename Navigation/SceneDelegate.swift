@@ -26,10 +26,11 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         self.window = UIWindow(windowScene: windowScene)
         let feedViewController = UINavigationController(rootViewController: FeedViewController())
-        let profileViewController = UINavigationController(rootViewController: ProfileViewController())
+        //let profileViewController = UINavigationController(rootViewController: ProfileViewController())
+        let LogInViewController = UINavigationController(rootViewController: LogInViewController())
         let tabBarController = UITabBarController()
         tabBarController.viewControllers = [
-            feedViewController , profileViewController
+            feedViewController , LogInViewController
         ]
         tabBarController.viewControllers?.enumerated().forEach {
             $1.tabBarItem.title = $0 == 0 ? "Feed" : "Profile"
