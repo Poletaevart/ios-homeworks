@@ -17,6 +17,7 @@
 		5C8C2E99287EDC9D00E68583 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5C8C2E98287EDC9D00E68583 /* Assets.xcassets */; };
 		5C8C2E9C287EDC9D00E68583 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5C8C2E9A287EDC9D00E68583 /* LaunchScreen.storyboard */; };
 		5CAD042F28832D940061A48B /* FeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CAD042E28832D940061A48B /* FeedViewController.swift */; };
+		5CB24F8828B4F65600232634 /* LogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CB24F8728B4F65600232634 /* LogInViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +52,7 @@
 		5C8C2EA2287EDC9E00E68583 /* NavigationTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NavigationTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		5C8C2EAC287EDC9E00E68583 /* NavigationUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NavigationUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		5CAD042E28832D940061A48B /* FeedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedViewController.swift; sourceTree = "<group>"; };
+		5CB24F8728B4F65600232634 /* LogInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = LogInViewController.swift; path = Navigation/LogInViewController.swift; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,6 +83,7 @@
 		5C6A948C288871C5001016CE /* Profile */ = {
 			isa = PBXGroup;
 			children = (
+				5CB24F8728B4F65600232634 /* LogInViewController.swift */,
 				5C6A948D288871F9001016CE /* ProfileHeaderView.swift */,
 				5C6A948F28887249001016CE /* ProfileViewController.swift */,
 			);
@@ -254,6 +257,7 @@
 			files = (
 				5C8C2E90287EDC9B00E68583 /* AppDelegate.swift in Sources */,
 				5C1F953E2884F62A00673975 /* PostViewController.swift in Sources */,
+				5CB24F8828B4F65600232634 /* LogInViewController.swift in Sources */,
 				5CAD042F28832D940061A48B /* FeedViewController.swift in Sources */,
 				5C77FAC628847EAD0044A0A1 /* Post.swift in Sources */,
 				5C1F95402884FF8700673975 /* InfoViewController.swift in Sources */,
