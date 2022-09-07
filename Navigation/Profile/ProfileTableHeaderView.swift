@@ -1,14 +1,35 @@
 //
-//  ProfileHeaderView.swift
+//  ProfileTableHeaderView.swift
 //  Navigation
 //
-//  Created by Artem Poletaev on 20.07.2022.
+//  Created by Artem Poletaev on 05.09.2022.
 //
 
 import UIKit
 
-class ProfileHeaderView:UIView{
-   
+class ProfileTableHeaderView: UITableViewHeaderFooterView{
+    
+    private var statusText: String = ""
+    
+    private lazy var profileHeaderView: UIView = {
+        let view = UIView()
+        view.backgroundColor = .systemBackground
+        view.translatesAutoresizingMaskIntoConstraints = false
+        return view
+    }()
+    
+    private lazy var hipsterLabel: UILabel = {
+            let textLabel = UILabel()
+            textLabel.text = "Hipster Cat"
+            textLabel.textAlignment = .center
+            textLabel.textColor = .black
+            textLabel.backgroundColor = .clear
+            textLabel.font = UIFont.systemFont(ofSize: 18, weight: .bold)
+            textLabel.translatesAutoresizingMaskIntoConstraints = false
+            
+            return textLabel
+        }()
+    
     private lazy var avatarImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.image = UIImage(named: "IMG_0924")
@@ -21,17 +42,6 @@ class ProfileHeaderView:UIView{
         return imageView
     }()
     
-    private lazy var textLabel: UILabel = {
-        let textLabel = UILabel()
-        textLabel.text = "Hipster Cat"
-        textLabel.textAlignment = .center
-        textLabel.textColor = .black
-        textLabel.backgroundColor = .clear
-        textLabel.font = UIFont.systemFont(ofSize: 18, weight: .bold)
-        textLabel.translatesAutoresizingMaskIntoConstraints = false
-        
-        return textLabel
-    }()
     
     private lazy var statusTextLabel: UILabel = {
         let statusTextLabel = UILabel()
@@ -70,18 +80,21 @@ class ProfileHeaderView:UIView{
         return button
     }()
     
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-        self.setupView()
+    override init(reuseIdentifier identifier: String?) {
+        super.init(reuseIdentifier: identifier)
+        setupView()
     }
     
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
+    required init?(coder Decoder: NSCoder) {
+        super.init(coder: Decoder)
+        setupView()
     }
     
     private func setupView() {
+        self.addSubview(self.profileHeaderView)
+        
         self.addSubview(self.avatarImageView)
-        self.addSubview(self.textLabel)
+        self.addSubview(self.hipsterLabel)
         self.addSubview(self.statusTextLabel)
         self.addSubview(self.textFild)
         self.addSubview(self.button)
@@ -89,13 +102,18 @@ class ProfileHeaderView:UIView{
         
         NSLayoutConstraint.activate([
             
+            profileHeaderView.topAnchor.constraint(equalTo: topAnchor),
+            profileHeaderView.leadingAnchor.constraint(equalTo: leadingAnchor),
+            profileHeaderView.trailingAnchor.constraint(equalTo: trailingAnchor),
+            profileHeaderView.bottomAnchor.constraint(equalTo: bottomAnchor),
+        
             avatarImageView.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 16),
             avatarImageView.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor, constant: 16),
             avatarImageView.heightAnchor.constraint(equalToConstant: 100),
             avatarImageView.widthAnchor.constraint(equalToConstant: 100),
             
-            textLabel.topAnchor.constraint(equalTo: self.safeAreaLayoutGuide.topAnchor, constant: 27),
-            textLabel.leadingAnchor.constraint(equalTo: self.avatarImageView.trailingAnchor, constant: 16),
+            hipsterLabel.topAnchor.constraint(equalTo: self.safeAreaLayoutGuide.topAnchor, constant: 27),
+            hipsterLabel.leadingAnchor.constraint(equalTo: self.avatarImageView.trailingAnchor, constant: 16),
             
             statusTextLabel.bottomAnchor.constraint(equalTo: self.textFild.bottomAnchor),
             statusTextLabel.heightAnchor.constraint(equalToConstant: 100),
@@ -124,6 +142,7 @@ class ProfileHeaderView:UIView{
     @objc func statusTextChanged(_ textField: UITextField){
         statusText = textField.text ?? ""
     }
-    private var statusText:String = ""
     
 }
+
+

@@ -5,7 +5,6 @@
 //  Created by Artem Poletaev on 23.08.2022.
 //
 
-import Foundation
 import UIKit
 
 class LogInViewController: UIViewController{
@@ -85,7 +84,6 @@ class LogInViewController: UIViewController{
         super.viewWillAppear(animated)
         navigationController?.navigationBar.isHidden = true
         NotificationCenter.default.addObserver(self, selector: #selector(didShowKeyboard(_:)), name: UIResponder.keyboardWillShowNotification, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(didHideKeyboard(_:)), name: UIResponder.keyboardDidHideNotification, object: nil)
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -150,10 +148,6 @@ class LogInViewController: UIViewController{
             
             scrollView.contentOffset = CGPoint(x: 0, y: offset)
         }
-    }
-    
-    @objc private func didHideKeyboard(_ notification: Notification) {
-        hideKeyboard()
     }
     
     @objc private func hideKeyboard() {
