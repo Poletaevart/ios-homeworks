@@ -11,6 +11,13 @@ class ProfileTableHeaderView: UITableViewHeaderFooterView{
     
     private var statusText: String = ""
     
+    private lazy var profileHeaderView: UIView = {
+        let view = UIView()
+        view.backgroundColor = .systemBackground
+        view.translatesAutoresizingMaskIntoConstraints = false
+        return view
+    }()
+    
     private lazy var hipsterLabel: UILabel = {
             let textLabel = UILabel()
             textLabel.text = "Hipster Cat"
@@ -84,6 +91,7 @@ class ProfileTableHeaderView: UITableViewHeaderFooterView{
     }
     
     private func setupView() {
+        self.addSubview(self.profileHeaderView)
         
         self.addSubview(self.avatarImageView)
         self.addSubview(self.hipsterLabel)
@@ -94,6 +102,11 @@ class ProfileTableHeaderView: UITableViewHeaderFooterView{
         
         NSLayoutConstraint.activate([
             
+            profileHeaderView.topAnchor.constraint(equalTo: topAnchor),
+            profileHeaderView.leadingAnchor.constraint(equalTo: leadingAnchor),
+            profileHeaderView.trailingAnchor.constraint(equalTo: trailingAnchor),
+            profileHeaderView.bottomAnchor.constraint(equalTo: bottomAnchor),
+        
             avatarImageView.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 16),
             avatarImageView.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor, constant: 16),
             avatarImageView.heightAnchor.constraint(equalToConstant: 100),
