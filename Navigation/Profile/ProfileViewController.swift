@@ -9,11 +9,7 @@ import UIKit
 
 class ProfileViewController: UIViewController{
     
-    private var viewModel: [Post] = [
-        Post(author: "Очень странные дела", description: "Сериал о двух мирах", image: "Post1", views: 1000, likes: 900),
-        Post(author: "Удача", description: "Мультик про кота и девочку без удачи", image: "Post2", views: 500, likes: 450),
-        Post(author: "Медленные лошади", description: "Сериал про неудачников из m5", image: "Post3", views: 700, likes: 600),
-        Post(author: "Не сработало", description: "Сериал про стартап", image: "Post4", views: 455, likes: 355)]
+    private var Movies: [Post] = StorageOfPosts.viewModel
     
     private lazy var tableView: UITableView = {
         let tableView = UITableView()
@@ -51,6 +47,7 @@ class ProfileViewController: UIViewController{
     }
 }
 
+
 extension ProfileViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
@@ -65,16 +62,16 @@ extension ProfileViewController: UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        viewModel.count
+        Movies.count
     }
     
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if let cell = tableView.dequeueReusableCell(withIdentifier: "PostCell", for: indexPath) as? PostTableViewCell {
-            cell.authorLabel.text = viewModel[indexPath.row].author
-            cell.postImageView.image = UIImage(named: viewModel[indexPath.row].image)
-            cell.descriptionLabel.text = viewModel[indexPath.row].description
-            cell.likesViewsLabel.text = "views: \(viewModel[indexPath.row].views) likes: \(viewModel[indexPath.row].likes)"
+            cell.authorLabel.text = Movies[indexPath.row].author
+            cell.postImageView.image = UIImage(named: Movies[indexPath.row].image)
+            cell.descriptionLabel.text = Movies[indexPath.row].description
+            cell.likesViewsLabel.text = "views: \(Movies[indexPath.row].views) likes: \(Movies[indexPath.row].likes)"
             return cell
         }
             return UITableViewCell()

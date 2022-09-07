@@ -93,6 +93,7 @@ class ProfileTableHeaderView: UITableViewHeaderFooterView{
         
         
         NSLayoutConstraint.activate([
+            
             avatarImageView.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 16),
             avatarImageView.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor, constant: 16),
             avatarImageView.heightAnchor.constraint(equalToConstant: 100),
