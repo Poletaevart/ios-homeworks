@@ -72,12 +72,12 @@ class PhotosTableViewCell: UITableViewCell {
         NSLayoutConstraint.activate([
             nameLb.leadingAnchor.constraint(equalTo: contentView.leadingAnchor,constant: 12),
             nameLb.topAnchor.constraint(equalTo: contentView.topAnchor,constant: 12),
-            
+
             rightImage.trailingAnchor.constraint(equalTo: contentView.trailingAnchor,constant: -12),
             rightImage.centerYAnchor.constraint(equalTo: nameLb.centerYAnchor),
             rightImage.heightAnchor.constraint(equalToConstant: 24),
             rightImage.widthAnchor.constraint(equalToConstant: 24),
-            
+
             collectionView.topAnchor.constraint(equalTo: nameLb.bottomAnchor,constant: 12),
             collectionView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
             collectionView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),

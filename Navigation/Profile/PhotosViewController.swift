@@ -12,6 +12,7 @@ class PhotosViewController: UIViewController {
     var textTitle: String?
     
     private let postImage = PostImage.setupImages()
+    
     private enum Constants {
         static let numberOfLine: CGFloat = 3
     }
@@ -71,7 +72,7 @@ extension PhotosViewController: UICollectionViewDataSource, UICollectionViewDele
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return postImage.count
     }
-
+    
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "PhotoCell", for: indexPath) as? PhotosCollectionViewCell else { return collectionView.dequeueReusableCell(withReuseIdentifier: "defaultcell", for: indexPath)}
         let avaImage = postImage[indexPath.item]
