@@ -25,3 +25,16 @@ static let viewModel: [Post] = [
     Post(author: "Не сработало", description: "Сериал про стартап", image: "Post4", views: 455, likes: 355)]
 }
 
+struct PostImage {
+    var image: String
+    
+    static func setupImages() -> [PostImage]{
+        let data = ["image1","image2","image3","image4","image5","image6","image7","image8","image9","image10","image11","image12","image13","image14","image15","image16","image17","image18","image19","image20",]
+        var tempImage = [PostImage]()
+        for (_, names) in data.enumerated() {
+            tempImage.append(PostImage(image: names))
+        }
+        return tempImage
+    }
+}
+
