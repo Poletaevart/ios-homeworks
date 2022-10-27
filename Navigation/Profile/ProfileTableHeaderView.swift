@@ -127,40 +127,6 @@ class ProfileTableHeaderView: UITableViewHeaderFooterView{
             make.height.equalTo(50)
         }
 
-        
-//        NSLayoutConstraint.activate([
-//
-//            profileHeaderView.topAnchor.constraint(equalTo: topAnchor),
-//            profileHeaderView.leadingAnchor.constraint(equalTo: leadingAnchor),
-//            profileHeaderView.trailingAnchor.constraint(equalTo: trailingAnchor),
-//            profileHeaderView.bottomAnchor.constraint(equalTo: bottomAnchor),
-//
-//            avatarImageView.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 16),
-//            avatarImageView.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor, constant: 16),
-//            avatarImageView.heightAnchor.constraint(equalToConstant: 100),
-//            avatarImageView.widthAnchor.constraint(equalToConstant: 100),
-//
-//            hipsterLabel.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 27),
-//            hipsterLabel.leadingAnchor.constraint(equalTo: avatarImageView.trailingAnchor, constant: 16),
-//
-//            statusTextLabel.bottomAnchor.constraint(equalTo: textFild.bottomAnchor),
-//            statusTextLabel.heightAnchor.constraint(equalToConstant: 100),
-//            statusTextLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16),
-//            statusTextLabel.leadingAnchor.constraint(equalTo: hipsterLabel.leadingAnchor),
-//
-//            textFild.bottomAnchor.constraint(equalTo: button.topAnchor, constant: -20),
-//            textFild.heightAnchor.constraint(equalToConstant: 40),
-//            textFild.leadingAnchor.constraint(equalTo: avatarImageView.trailingAnchor, constant: 16),
-//            textFild.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor, constant: -16),
-//
-//            button.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor, constant: 16),
-//            button.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor, constant: -16),
-//            button.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -16),
-//            button.topAnchor.constraint(equalTo: avatarImageView.bottomAnchor, constant: 32),
-//            button.heightAnchor.constraint(equalToConstant: 50)
-//
-//        ])
-        
     }
     @objc func buttonPressed(){
         if let text = statusTextLabel.text {

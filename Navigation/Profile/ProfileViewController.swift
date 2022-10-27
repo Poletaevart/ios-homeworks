@@ -172,6 +172,7 @@ extension ProfileViewController: UITableViewDelegate, UITableViewDataSource {
         cellTwo.postImageView.image = UIImage(named: movies[indexPath.row].image)
         cellTwo.descriptionLabel.text = movies[indexPath.row].description
         cellTwo.likesViewsLabel.text = "views: \(movies[indexPath.row].views) likes: \(movies[indexPath.row].likes)"
+        
         return indexPath.section == 0 ? cellOne : cellTwo
     }
 
@@ -196,5 +197,6 @@ extension ProfileViewController: UITableViewDelegate, UITableViewDataSource {
                 return nil
             }
         }
+    
    }
 
