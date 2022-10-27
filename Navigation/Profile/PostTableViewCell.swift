@@ -49,13 +49,15 @@ class PostTableViewCell: UITableViewCell {
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         self.setupView()
+        
     }
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         self.setupView()
-
+        
     }
+    
     
     private func setupView() {
         
@@ -84,8 +86,8 @@ class PostTableViewCell: UITableViewCell {
         ])
     }
     
-    func setup(with post: PostImage){
-        ImageProcessor().processImage(sourceImage: UIImage(named: post.image)!, filter: .noir) { image in
+    func setup(with post: Post){
+        ImageProcessor().processImage(sourceImage: UIImage(named: post.image)!, filter: .fade) { image in
             postImageView.image = image
                 }
 
