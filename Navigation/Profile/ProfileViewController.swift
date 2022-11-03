@@ -156,6 +156,7 @@ class ProfileViewController: UIViewController{
 
 extension ProfileViewController: UITableViewDelegate, UITableViewDataSource {
 
+
     func numberOfSections(in tableView: UITableView) -> Int {
         return 2
     }
@@ -165,14 +166,16 @@ extension ProfileViewController: UITableViewDelegate, UITableViewDataSource {
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-       
         guard let cellOne = tableView.dequeueReusableCell(withIdentifier: "PhotosTableCell") as? PhotosTableViewCell else { return tableView.dequeueReusableCell(withIdentifier: "defaultcell", for: indexPath) }
         guard let cellTwo = tableView.dequeueReusableCell(withIdentifier: "PostCell", for: indexPath) as? PostTableViewCell else { return tableView.dequeueReusableCell(withIdentifier: "defaultcell", for: indexPath) }
         cellTwo.authorLabel.text = movies[indexPath.row].author
         cellTwo.postImageView.image = UIImage(named: movies[indexPath.row].image)
         cellTwo.descriptionLabel.text = movies[indexPath.row].description
         cellTwo.likesViewsLabel.text = "views: \(movies[indexPath.row].views) likes: \(movies[indexPath.row].likes)"
+        let post = movies[indexPath.row]
+        cellTwo.setup(with: post)
         return indexPath.section == 0 ? cellOne : cellTwo
+        
     }
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -196,5 +199,6 @@ extension ProfileViewController: UITableViewDelegate, UITableViewDataSource {
                 return nil
             }
         }
+    
    }
 

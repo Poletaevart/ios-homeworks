@@ -6,7 +6,7 @@
 //
 
 import UIKit
-
+import SnapKit
 class ProfileTableHeaderView: UITableViewHeaderFooterView{
     
     private var statusText: String = ""
@@ -14,7 +14,6 @@ class ProfileTableHeaderView: UITableViewHeaderFooterView{
     private lazy var profileHeaderView: UIView = {
         let view = UIView()
         view.backgroundColor = .systemBackground
-        view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
     
@@ -25,8 +24,6 @@ class ProfileTableHeaderView: UITableViewHeaderFooterView{
             textLabel.textColor = .black
             textLabel.backgroundColor = .clear
             textLabel.font = UIFont.systemFont(ofSize: 18, weight: .bold)
-            textLabel.translatesAutoresizingMaskIntoConstraints = false
-            
             return textLabel
         }()
     
@@ -38,7 +35,6 @@ class ProfileTableHeaderView: UITableViewHeaderFooterView{
         imageView.layer.borderWidth = 3
         imageView.clipsToBounds = true
         imageView.contentMode = .scaleAspectFill
-        imageView.translatesAutoresizingMaskIntoConstraints = false
         return imageView
     }()
     
@@ -48,7 +44,6 @@ class ProfileTableHeaderView: UITableViewHeaderFooterView{
         statusTextLabel.text = "Waiting for something"
         statusTextLabel.textColor = .gray
         statusTextLabel.font = UIFont.systemFont(ofSize: 14, weight: .regular)
-        statusTextLabel.translatesAutoresizingMaskIntoConstraints = false
         return statusTextLabel
     }()
     
@@ -61,7 +56,6 @@ class ProfileTableHeaderView: UITableViewHeaderFooterView{
         textFild.layer.cornerRadius = 12
         textFild.backgroundColor = .white
         textFild.addTarget(self, action: #selector(statusTextChanged), for: .editingChanged)
-        textFild.translatesAutoresizingMaskIntoConstraints = false
         return textFild
     }()
     
@@ -76,7 +70,6 @@ class ProfileTableHeaderView: UITableViewHeaderFooterView{
         button.setTitle("Set status", for: .normal)
         button.isUserInteractionEnabled = true
         button.addTarget(self, action: #selector(buttonPressed), for: .touchUpInside)
-        button.translatesAutoresizingMaskIntoConstraints = false
         return button
     }()
     
@@ -99,40 +92,46 @@ class ProfileTableHeaderView: UITableViewHeaderFooterView{
         self.addSubview(self.textFild)
         self.addSubview(self.button)
         
-        
-        NSLayoutConstraint.activate([
-            
-            profileHeaderView.topAnchor.constraint(equalTo: topAnchor),
-            profileHeaderView.leadingAnchor.constraint(equalTo: leadingAnchor),
-            profileHeaderView.trailingAnchor.constraint(equalTo: trailingAnchor),
-            profileHeaderView.bottomAnchor.constraint(equalTo: bottomAnchor),
-        
-            avatarImageView.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 16),
-            avatarImageView.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor, constant: 16),
-            avatarImageView.heightAnchor.constraint(equalToConstant: 100),
-            avatarImageView.widthAnchor.constraint(equalToConstant: 100),
-            
-            hipsterLabel.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 27),
-            hipsterLabel.leadingAnchor.constraint(equalTo: avatarImageView.trailingAnchor, constant: 16),
-            
-            statusTextLabel.bottomAnchor.constraint(equalTo: textFild.bottomAnchor),
-            statusTextLabel.heightAnchor.constraint(equalToConstant: 100),
-            statusTextLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16),
-            statusTextLabel.leadingAnchor.constraint(equalTo: hipsterLabel.leadingAnchor),
-            
-            textFild.bottomAnchor.constraint(equalTo: button.topAnchor, constant: -20),
-            textFild.heightAnchor.constraint(equalToConstant: 40),
-            textFild.leadingAnchor.constraint(equalTo: avatarImageView.trailingAnchor, constant: 16),
-            textFild.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor, constant: -16),
-            
-            button.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor, constant: 16),
-            button.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor, constant: -16),
-            button.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -16),
-            button.topAnchor.constraint(equalTo: avatarImageView.bottomAnchor, constant: 32),
-            button.heightAnchor.constraint(equalToConstant: 50)
+        //Задача 1
+//        Добавьте библиотеку SnapKit через менеджер зависимостей Cocoapods. Используйте последнюю версию библиотеки.
+//        Перепишите и сделайте вёрстку визуальных объектов класса ProfileHeaderView при помощи SnapKit.
+//        Проверьте, что ваша вёрстка хорошо смотрится на экранах различных устройств от iPhone SE до iPhone 13 Pro Max.
 
-        ])
+        profileHeaderView.snp.makeConstraints { make in
+            make.edges.equalToSuperview()
+        }
         
+        avatarImageView.snp.makeConstraints { make in
+            make.top.equalTo(16)
+            make.size.equalTo(CGSize(width: 100, height: 100))
+            make.leading.equalTo(16)
+        }
+        
+        hipsterLabel.snp.makeConstraints { make in
+            make.top.equalTo(27)
+            make.leading.equalTo(avatarImageView.snp.trailing).offset(16)
+        }
+        statusTextLabel.snp.makeConstraints { make in
+            make.bottom.equalTo(textFild.snp.bottom)
+            make.size.height.equalTo(100)
+            make.trailing.equalTo(-16)
+            make.leading.equalTo(hipsterLabel.snp.leading)
+        }
+        textFild.snp.makeConstraints { make in
+            make.height.equalTo(40)
+            make.leading.equalTo(avatarImageView.snp.trailing).offset(16)
+            make.trailing.equalTo(-16)
+            make.bottom.equalTo(button.snp.top).offset(-20)
+        }
+        
+        button.snp.makeConstraints { make in
+            make.leading.equalTo(16)
+            make.trailing.equalTo(-16)
+            make.bottom.equalTo(-16)
+            make.top.equalTo(avatarImageView.snp.bottom).offset(32)
+            make.height.equalTo(50)
+        }
+
     }
     @objc func buttonPressed(){
         if let text = statusTextLabel.text {
