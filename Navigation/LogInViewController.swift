@@ -17,7 +17,7 @@ class LogInViewController: UIViewController{
     
     private lazy var vkImageView: UIImageView = {
         let imageView = UIImageView()
-        imageView.image = UIImage(named: "Vklogo")
+        imageView.image = (UIImage(named: "Vklogo"))
         imageView.translatesAutoresizingMaskIntoConstraints = false
         return imageView
     }()
@@ -45,16 +45,13 @@ class LogInViewController: UIViewController{
         textField.textColor = .black
         textField.font = .systemFont(ofSize: 16, weight: .regular)
         textField.autocapitalizationType = .none
-        textField.isSecureTextEntry = true
         return textField
     }()
     
     private lazy var passwordTextField: UITextField = {
         let textField = UITextField()
-        
         textField.backgroundColor = .systemGray6
         textField.placeholder = "   Password"
-        textField.textColor = .black
         textField.textColor = .black
         textField.font = .systemFont(ofSize: 16, weight: .regular)
         textField.autocapitalizationType = .none
@@ -92,9 +89,21 @@ class LogInViewController: UIViewController{
     }
     
     @objc func goToProfile() {
-        let vc = ProfileViewController()
         
-        navigationController?.pushViewController(vc, animated: true)
+#if DEBUG
+        let choiseLoginService = TestUserService().checkLogin(login: loginTextField.text!, pass: passwordTextField.text!)
+#else
+        let choiseLoginService = CurrentUserService().checkLogin(login: loginTextField.text!, pass: passwordTextField.text!)
+#endif
+        if let checkedUser = choiseLoginService {
+            let profileVC = ProfileViewController()
+            profileVC.newUser = checkedUser
+            navigationController?.pushViewController(profileVC, animated: true)
+        }
+        else {
+            print("Error login")
+        }
+        
     }
     
     private func setupView() {
@@ -154,5 +163,8 @@ class LogInViewController: UIViewController{
         view.endEditing(true)
         scrollView.setContentOffset(.zero, animated: true)
     }
+    
+    
+    
 }
 
