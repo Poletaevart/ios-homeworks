@@ -101,7 +101,10 @@ class LogInViewController: UIViewController{
             navigationController?.pushViewController(profileVC, animated: true)
         }
         else {
-            print("Error login")
+            let alert = UIAlertController(title: "Unknown login", message: "Please, enter correct user login", preferredStyle: .alert)
+                        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel))
+                        self.present(alert, animated: true)
+
         }
         
     }
