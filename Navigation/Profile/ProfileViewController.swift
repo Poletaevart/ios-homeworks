@@ -11,9 +11,9 @@ import StorageService
 class ProfileViewController: UIViewController{
     
     private var movies: [Post] = StorageOfPosts.viewModel
-    
     var startPoint: CGPoint?
     var cornerRadiusAvatar: CGFloat?
+    var newUser: User? = nil
 
     private lazy var tableView: UITableView = {
         let tableView = UITableView(frame: .zero, style: .grouped)
@@ -190,6 +190,9 @@ extension ProfileViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
             if section == 0{
                 guard let header = tableView.dequeueReusableHeaderFooterView(withIdentifier: "HeaderView")as? ProfileTableHeaderView else { return nil }
+                if let newUser = newUser {
+                    header.setup(fullName: newUser.fullName, avatarimage: newUser.avatarImage, status: newUser.status)}
+                
                 let tapOnAvatarImageGusture = UITapGestureRecognizer(target: self, action: #selector(tapOnAvatarImage))
                 header.avatarImageView.addGestureRecognizer(tapOnAvatarImageGusture)
                 header.avatarImageView.isUserInteractionEnabled = true
@@ -198,7 +201,8 @@ extension ProfileViewController: UITableViewDelegate, UITableViewDataSource {
             } else {
                 return nil
             }
+        
         }
-    
-   }
+        }
+
 

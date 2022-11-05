@@ -19,7 +19,6 @@ class ProfileTableHeaderView: UITableViewHeaderFooterView{
     
     private lazy var hipsterLabel: UILabel = {
             let textLabel = UILabel()
-            textLabel.text = "Hipster Cat"
             textLabel.textAlignment = .center
             textLabel.textColor = .black
             textLabel.backgroundColor = .clear
@@ -29,7 +28,6 @@ class ProfileTableHeaderView: UITableViewHeaderFooterView{
     
     let avatarImageView: UIImageView = {
         let imageView = UIImageView()
-        imageView.image = UIImage(named: "IMG_0924")
         imageView.layer.cornerRadius = 50
         imageView.layer.borderColor = CGColor(red: 255, green: 255, blue: 255, alpha: 1)
         imageView.layer.borderWidth = 3
@@ -41,7 +39,6 @@ class ProfileTableHeaderView: UITableViewHeaderFooterView{
     
     private lazy var statusTextLabel: UILabel = {
         let statusTextLabel = UILabel()
-        statusTextLabel.text = "Waiting for something"
         statusTextLabel.textColor = .gray
         statusTextLabel.font = UIFont.systemFont(ofSize: 14, weight: .regular)
         return statusTextLabel
@@ -144,7 +141,12 @@ class ProfileTableHeaderView: UITableViewHeaderFooterView{
     @objc func statusTextChanged(_ textField: UITextField){
         statusText = textField.text ?? ""
     }
-    
+    func setup(fullName: String, avatarimage: UIImage, status: String ){
+        hipsterLabel.text = fullName
+        avatarImageView.image = avatarimage
+        statusTextLabel.text = status
+        
+    }
 }
 
 
