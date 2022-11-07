@@ -20,6 +20,7 @@
 		5C6C00B12919653600065E45 /* Checker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C6C00B02919653600065E45 /* Checker.swift */; };
 		5C6C00B329196C9800065E45 /* LoginInspector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C6C00B229196C9800065E45 /* LoginInspector.swift */; };
 		5C6C00B529196CF100065E45 /* LoginViewControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C6C00B429196CF100065E45 /* LoginViewControllerDelegate.swift */; };
+		5C6C00B72919736900065E45 /* LoginFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C6C00B62919736900065E45 /* LoginFactory.swift */; };
 		5C8C2E90287EDC9B00E68583 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C8C2E8F287EDC9B00E68583 /* AppDelegate.swift */; };
 		5C8C2E92287EDC9B00E68583 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C8C2E91287EDC9B00E68583 /* SceneDelegate.swift */; };
 		5C8C2E99287EDC9D00E68583 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5C8C2E98287EDC9D00E68583 /* Assets.xcassets */; };
@@ -73,6 +74,7 @@
 		5C6C00B02919653600065E45 /* Checker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Checker.swift; sourceTree = "<group>"; };
 		5C6C00B229196C9800065E45 /* LoginInspector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginInspector.swift; sourceTree = "<group>"; };
 		5C6C00B429196CF100065E45 /* LoginViewControllerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewControllerDelegate.swift; sourceTree = "<group>"; };
+		5C6C00B62919736900065E45 /* LoginFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginFactory.swift; sourceTree = "<group>"; };
 		5C77FAC528847EAD0044A0A1 /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 		5C8C2E8C287EDC9B00E68583 /* Navigation.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Navigation.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5C8C2E8F287EDC9B00E68583 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -122,6 +124,7 @@
 				5C582B67291429BC00ACC66F /* User.swift */,
 				5C6C00B02919653600065E45 /* Checker.swift */,
 				5C6C00B229196C9800065E45 /* LoginInspector.swift */,
+				5C6C00B62919736900065E45 /* LoginFactory.swift */,
 			);
 			path = LoginCheck;
 			sourceTree = "<group>";
@@ -413,6 +416,7 @@
 				5CE869A728CB475900DAF27F /* PhotosViewController.swift in Sources */,
 				5C6A949028887249001016CE /* ProfileViewController.swift in Sources */,
 				5CE8699C28C62E4800DAF27F /* PostTableViewCell.swift in Sources */,
+				5C6C00B72919736900065E45 /* LoginFactory.swift in Sources */,
 				5C8C2E92287EDC9B00E68583 /* SceneDelegate.swift in Sources */,
 				5CE8699E28C631DC00DAF27F /* ProfileTableHeaderView.swift in Sources */,
 				5C6C00B329196C9800065E45 /* LoginInspector.swift in Sources */,
