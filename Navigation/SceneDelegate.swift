@@ -26,7 +26,6 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         self.window = UIWindow(windowScene: windowScene)
         let feedViewController = UINavigationController(rootViewController: FeedViewController())
-        //let profileViewController = UINavigationController(rootViewController: ProfileViewController())
         let LogInViewController = UINavigationController(rootViewController: LogInViewController())
         let tabBarController = UITabBarController()
         tabBarController.viewControllers = [
@@ -40,7 +39,12 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         }
         self.window?.rootViewController = tabBarController
         self.window?.makeKeyAndVisible()
-            
+        
+        if let TB = window?.rootViewController as? UITabBarController,
+           let navi = TB.viewControllers?.last as? UINavigationController,
+           let VC = navi.viewControllers.first as? LogInViewController {
+            VC.loginDelegate = LoginInspector()
+        }
            
     }
 
