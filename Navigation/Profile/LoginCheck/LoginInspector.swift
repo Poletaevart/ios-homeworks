@@ -9,6 +9,6 @@ import UIKit
 
 struct LoginInspector: LoginViewControllerDelegate{
     func check(login: String, pass: String) -> Bool {
-       return Checker.shared.check(login: login, pass: pass)
+        return Checker.shared.check(login: login, pass: pass)
     }
 }
