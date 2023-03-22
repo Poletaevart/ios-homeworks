@@ -48,15 +48,15 @@ class PhotosViewController: UIViewController {
         setupObserver()
     }
     override func viewDidDisappear(_ animated: Bool) {
-        imageFasade.removeSubscription(for: self)
-    }
-
+        super.viewDidDisappear(animated)
+                imageFasade.removeSubscription(for: self)
+            }
+       
     private func setupObserver() {
-        let ImagePublisherFacade = ImagePublisherFacade()
-        ImagePublisherFacade.subscribe(self)
-        ImagePublisherFacade.addImagesWithTimer(time: 0.5 , repeat: 20 )
-    
-    }
+            imageFasade.subscribe(self)
+            imageFasade.addImagesWithTimer(time: 0.5 , repeat: 20 )
+
+        }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
@@ -64,15 +64,15 @@ class PhotosViewController: UIViewController {
         print("viewWillAppear")
         view.backgroundColor = .white
         navigationController?.navigationBar.isHidden = false
+        imageFasade.rechargeImageLibrary()
     
         
     }
     
     override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(true)
+        super.viewWillDisappear(animated)
         print("viewWillDisappear")
         navigationController?.navigationBar.isHidden = true
-        
         
     }
     
