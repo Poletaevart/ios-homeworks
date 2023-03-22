@@ -44,5 +44,5 @@ class ProfileCollectionViewCell: UICollectionViewCell {
     func setup(with post: PostImage) {
         avaImage.image = UIImage(named:post.image)
     }
-    
+
 }

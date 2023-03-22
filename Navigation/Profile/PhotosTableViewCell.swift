@@ -98,7 +98,7 @@ extension PhotosTableViewCell: UICollectionViewDataSource, UICollectionViewDeleg
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: PhotosCollectionViewCell.identifier, for: indexPath) as? PhotosCollectionViewCell else { return collectionView.dequeueReusableCell(withReuseIdentifier: "defaultcell", for: indexPath)}
         let avaImage = postImage[indexPath.item]
-        cell.setup(with: avaImage)
+        cell.setup(image: avaImage)
         return cell
     }
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
@@ -116,3 +116,4 @@ extension PhotosTableViewCell: UICollectionViewDataSource, UICollectionViewDeleg
         return CGSize(width: itemwidth, height: itemwidth)
     }
 }
+
