@@ -58,7 +58,7 @@ class FeedViewController: UIViewController {
                 self.checkLabel.text = "Ошибка"
             }
         } else {
-            print("Empty String")
+            print("❌")
         }
     }
     
@@ -78,28 +78,28 @@ class FeedViewController: UIViewController {
         view.backgroundColor = .white
         
         view.addSubview(stackView)
-        stackView.addSubview(checkTextFild)
-        stackView.addSubview(checkLabel)
-        stackView.addSubview(checkButton)
         stackView.addArrangedSubview(myPostButton)
+        stackView.addArrangedSubview(checkTextFild)
+        stackView.addArrangedSubview(checkLabel)
+        stackView.addArrangedSubview(checkButton)
         
         setupConstraints()
     }
     
     private func setupConstraints() {
         NSLayoutConstraint.activate([
-            stackView.heightAnchor.constraint(equalToConstant: 90),
-            stackView.widthAnchor.constraint(equalToConstant: 200),
+            stackView.heightAnchor.constraint(equalToConstant: 200),
+            stackView.widthAnchor.constraint(equalToConstant: 300),
             stackView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             stackView.centerYAnchor.constraint(equalTo: view.centerYAnchor),
             
             checkTextFild.widthAnchor.constraint(equalToConstant: 300),
             checkTextFild.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             checkTextFild.heightAnchor.constraint(equalToConstant: 50),
-            checkTextFild.topAnchor.constraint(equalTo: stackView.bottomAnchor, constant: 35),
             
             checkLabel.topAnchor.constraint(equalTo: checkTextFild.bottomAnchor,constant: 20),
             checkLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            checkLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant:150),
             
             checkButton.topAnchor.constraint(equalTo: checkLabel.bottomAnchor, constant: 20),
             checkButton.heightAnchor.constraint(equalToConstant: 40),
