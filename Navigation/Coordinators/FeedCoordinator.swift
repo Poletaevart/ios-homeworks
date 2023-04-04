@@ -29,5 +29,8 @@ import UIKit
          let postViewController = PostViewController()
          self.navigationController.pushViewController(postViewController, animated: true)
 //         postViewController.titlePost = post
+         
+         //не работает
+        
      }
  }

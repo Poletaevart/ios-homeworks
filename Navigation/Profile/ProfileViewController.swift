@@ -183,10 +183,7 @@ extension ProfileViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         print("Section \(indexPath.section) - Row \(indexPath.row)")
         tableView.deselectRow(at: indexPath, animated:true)
-        let vc = PhotosViewController()
-        vc.textTitle = "Photo Gallery"
-        indexPath.section == 0 ? navigationController?.pushViewController(vc, animated: true) : nil
-//????????
+        coordinator?.toPhotosViewController()
     }
 
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
