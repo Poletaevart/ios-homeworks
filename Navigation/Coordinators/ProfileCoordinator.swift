@@ -33,7 +33,7 @@ import UIKit
      func toPhotosViewController() {
          let vc = PhotosViewController()
          vc.textTitle = "Photo Gallery"
-         indexPath.section == 0 ? navigationController?.pushViewController(vc, animated: true) : nil
+//         indexPath.section == 0 ? navigationController?.pushViewController(vc, animated: true) : nil
 
 //        не работает
          

@@ -28,6 +28,6 @@ import UIKit
      func toPostViewController(send post: Post) {
          let postViewController = PostViewController()
          self.navigationController.pushViewController(postViewController, animated: true)
-         postViewController.titlePost = post
+//         postViewController.titlePost = post
      }
  }

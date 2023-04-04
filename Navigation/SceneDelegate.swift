@@ -23,6 +23,15 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         window = UIWindow(windowScene: windowScene)
         window?.rootViewController = tabController
         window?.makeKeyAndVisible()
+        
+        if let tb = window?.rootViewController as? UITabBarController,
+                  let nav = tb.viewControllers?.last as? UINavigationController,
+                  let vc = nav.viewControllers.first as? LogInViewController {
+                   vc.loginDelegate = LoginInspector()
+               }
+               
+               LogInViewController.loginFactoryDelegate = MyLoginFactory()
+           }
     }
 
 
@@ -55,6 +64,6 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     }
 
 
-}
+
 
 
