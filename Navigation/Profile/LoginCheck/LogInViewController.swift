@@ -100,11 +100,7 @@ class LogInViewController: UIViewController{
 
         if checkResults {
                     guard let user = Checker.shared.user else { return }
-            let profileVC = ProfileViewController()
-            profileVC.newUser = user
-            navigationController?.pushViewController(profileVC, animated: true)
-        //не работает
-           // coordinator?.toProfileViewController(with: user)
+            coordinator?.toProfileViewController(with: user)
         }
         else {
             let alert = UIAlertController(title: "Unknown login", message: "Please, enter correct user login", preferredStyle: .alert)

@@ -28,6 +28,7 @@ import UIKit
          profileVC.newUser = user
          profileVC.coordinator = self
          navigationController.pushViewController(profileVC, animated: true)
+         //работает 
      }
 
      func toPhotosViewController() {
