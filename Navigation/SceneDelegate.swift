@@ -10,46 +10,21 @@ import UIKit
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var window: UIWindow?
+    var coordinator: TabbarCoordinatorProtocol?
 
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         
-        if #available(iOS 15, *) {
-            let appearance = UINavigationBarAppearance()
-            appearance.configureWithOpaqueBackground()
-            UINavigationBar.appearance().standardAppearance = appearance
-            UINavigationBar.appearance().scrollEdgeAppearance = appearance
-        }
+        let tabController = UITabBarController()
+        coordinator = TabbarCoordinator(tabbarController: tabController)
+        coordinator?.start()
+        
         guard let windowScene = (scene as? UIWindowScene) else { return }
-        self.window = UIWindow(windowScene: windowScene)
-        
-        let factory = MyLoginFactory()
-        let loginInspector = factory.makeLoginInspector()
-        let loginVC = LogInViewController()
-        loginVC.loginDelegate = loginInspector
-        
-        LogInViewController.loginFactoryDelegate = MyLoginFactory()
-        
-        
-        let feedViewController = UINavigationController(rootViewController: FeedViewController())
-        let LogInViewController = UINavigationController(rootViewController: loginVC)
-        let tabBarController = UITabBarController()
-        tabBarController.viewControllers = [
-            feedViewController , LogInViewController
-        ]
-        tabBarController.viewControllers?.enumerated().forEach {
-            $1.tabBarItem.title = $0 == 0 ? "Feed" : "Profile"
-            $1.tabBarItem.image = $0 == 0
-            ? UIImage(systemName: "newspaper")
-            : UIImage(systemName: "person")
-        }
-        self.window?.rootViewController = tabBarController
-        self.window?.makeKeyAndVisible()
-        
-        
-        
-
+        window = UIWindow(windowScene: windowScene)
+        window?.rootViewController = tabController
+        window?.makeKeyAndVisible()
     }
+
 
     func sceneDidDisconnect(_ scene: UIScene) {
         // Called as the scene is being released by the system.

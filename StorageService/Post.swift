@@ -7,6 +7,7 @@
 
 import UIKit
 
+
 public struct Post {
     
     public var author: String

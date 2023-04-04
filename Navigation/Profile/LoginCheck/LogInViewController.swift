@@ -12,6 +12,8 @@ class LogInViewController: UIViewController{
     var loginDelegate: LoginViewControllerDelegate?
     static var loginFactoryDelegate: LoginFactory?
     
+    weak var coordinator: ProfileCoordinator?
+    
     private lazy var scrollView: UIScrollView = {
         let scrollView = UIScrollView()
         scrollView.translatesAutoresizingMaskIntoConstraints = false
@@ -101,6 +103,8 @@ class LogInViewController: UIViewController{
             let profileVC = ProfileViewController()
             profileVC.newUser = user
             navigationController?.pushViewController(profileVC, animated: true)
+        //не работает
+           // coordinator?.toProfileViewController(with: user)
         }
         else {
             let alert = UIAlertController(title: "Unknown login", message: "Please, enter correct user login", preferredStyle: .alert)

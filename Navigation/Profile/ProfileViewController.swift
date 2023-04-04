@@ -15,6 +15,8 @@ class ProfileViewController: UIViewController{
     var cornerRadiusAvatar: CGFloat?
     var newUser: User? = nil
 
+    weak var coordinator: ProfileCoordinator?
+    
     private lazy var tableView: UITableView = {
         let tableView = UITableView(frame: .zero, style: .grouped)
         tableView.delegate = self
@@ -184,7 +186,7 @@ extension ProfileViewController: UITableViewDelegate, UITableViewDataSource {
         let vc = PhotosViewController()
         vc.textTitle = "Photo Gallery"
         indexPath.section == 0 ? navigationController?.pushViewController(vc, animated: true) : nil
-
+//????????
     }
 
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {

@@ -11,6 +11,7 @@ import StorageService
 class FeedViewController: UIViewController {
     var post = "Мой пост"
     
+    weak var coordinator: FeedCoordinator?
     
     private lazy var stackView: UIStackView = {
         let stack = UIStackView()
@@ -71,6 +72,9 @@ class FeedViewController: UIViewController {
         let postViewController = PostViewController()
         self.navigationController?.pushViewController(postViewController, animated: true)
         postViewController.titlePost = post
+        
+        //coordinator?.toPostViewController(send: post)
+        // не работает
        
     }
     
