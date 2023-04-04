@@ -69,12 +69,7 @@ class FeedViewController: UIViewController {
     }
     
     private func postTap() {
-        let postViewController = PostViewController()
-        self.navigationController?.pushViewController(postViewController, animated: true)
-        postViewController.titlePost = post
-        
-        //coordinator?.toPostViewController(send: post)
-        // не работает
+        coordinator?.toPostViewController()
        
     }
     

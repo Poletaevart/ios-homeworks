@@ -25,12 +25,10 @@ import UIKit
          navigationController.pushViewController(feedVC, animated: false)
      }
 
-     func toPostViewController(send post: Post) {
+     func toPostViewController() {
          let postViewController = PostViewController()
          self.navigationController.pushViewController(postViewController, animated: true)
-//         postViewController.titlePost = post
-         
-         //не работает
+         postViewController.titlePost = "Мой пост"
         
      }
  }

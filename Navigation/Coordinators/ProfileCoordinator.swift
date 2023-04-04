@@ -28,15 +28,13 @@ import UIKit
          profileVC.newUser = user
          profileVC.coordinator = self
          navigationController.pushViewController(profileVC, animated: true)
-         //работает 
+        
      }
 
      func toPhotosViewController() {
          let vc = PhotosViewController()
          vc.textTitle = "Photo Gallery"
          navigationController.pushViewController(vc, animated: true)
-
-//работает
          
      }
  }
