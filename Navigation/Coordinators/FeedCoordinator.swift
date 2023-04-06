@@ -9,7 +9,7 @@ import UIKit
  import StorageService
 
  class FeedCoordinator: Coordinator {
-     
+         var post = "Мой пост"
      
      var navigationController: UINavigationController
 
@@ -28,7 +28,7 @@ import UIKit
      func toPostViewController() {
          let postViewController = PostViewController()
          self.navigationController.pushViewController(postViewController, animated: true)
-         postViewController.titlePost = "Мой пост"
+         postViewController.titlePost = post
         
      }
  }

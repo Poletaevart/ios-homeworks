@@ -14,26 +14,22 @@ import UIKit
      init(navigationController: UINavigationController) {
          self.navigationController = navigationController
      }
-
+     let screenAssembly = ScreenAssembly()
      func start() {
-         let loginVC = LogInViewController()
-         loginVC.coordinator = self
+         let loginVC = screenAssembly.createLogin(coordinator: self)
          loginVC.tabBarItem.title = "Profile"
          loginVC.tabBarItem.image = UIImage(systemName: "person")
          navigationController.pushViewController(loginVC, animated: false)
      }
 
      func toProfileViewController(with user: User) {
-         let profileVC = ProfileViewController()
-         profileVC.newUser = user
-         profileVC.coordinator = self
+         let profileVC = screenAssembly.createProfile(user: user, coordinator: self)
          navigationController.pushViewController(profileVC, animated: true)
         
      }
 
      func toPhotosViewController() {
-         let vc = PhotosViewController()
-         vc.textTitle = "Photo Gallery"
+         let vc = screenAssembly.createPhoto()
          navigationController.pushViewController(vc, animated: true)
          
      }

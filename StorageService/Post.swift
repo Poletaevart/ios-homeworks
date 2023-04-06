@@ -7,7 +7,6 @@
 
 import UIKit
 
-
 public struct Post {
     
     public var author: String
@@ -38,4 +37,5 @@ public struct PostImage {
         return tempImage
     }
 }
+
 

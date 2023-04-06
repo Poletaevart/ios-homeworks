@@ -9,10 +9,19 @@ import UIKit
 
 class LogInViewController: UIViewController{
     
-    var loginDelegate: LoginViewControllerDelegate?
-    static var loginFactoryDelegate: LoginFactory?
-    
     weak var coordinator: ProfileCoordinator?
+    
+    var viewModel: LoginViewModel! {
+        didSet {
+            self.viewModel.checkerIsLaunched = { [ weak self ] viewModel in
+                guard let resultUser = viewModel.loginedUser else {
+                    self?.goToProfile()
+                    return
+                }
+                self?.coordinator?.toProfileViewController(with: resultUser)
+            }
+        }
+    }
     
     private lazy var scrollView: UIScrollView = {
         let scrollView = UIScrollView()
@@ -94,20 +103,7 @@ class LogInViewController: UIViewController{
     }
     
     @objc func goToProfile() {
-        
-         guard let checkResults = LogInViewController.loginFactoryDelegate?.makeLoginInspector().check(login: loginTextField.text!, pass: passwordTextField.text!) else {
-            return }
-
-        if checkResults {
-                    guard let user = Checker.shared.user else { return }
-            coordinator?.toProfileViewController(with: user)
-        }
-        else {
-            let alert = UIAlertController(title: "Unknown login", message: "Please, enter correct user login", preferredStyle: .alert)
-                        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel))
-                        self.present(alert, animated: true)
-
-        }
+        viewModel.startChecker(login: loginTextField.text!, pass: passwordTextField.text!)
         
     }
     
