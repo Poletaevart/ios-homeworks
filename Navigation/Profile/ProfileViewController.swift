@@ -13,11 +13,12 @@ class ProfileViewController: UIViewController{
     private var movies: [Post] = StorageOfPosts.viewModel
     var startPoint: CGPoint?
     var cornerRadiusAvatar: CGFloat?
-    var newUser: User? = nil
 
     weak var coordinator: ProfileCoordinator?
     
     private var currentUser: User?
+    
+    
         private var cartoons = [Post]()
 
         var viewModel: ProfileViewModel! {
@@ -201,7 +202,7 @@ extension ProfileViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
             if section == 0{
                 guard let header = tableView.dequeueReusableHeaderFooterView(withIdentifier: "HeaderView")as? ProfileTableHeaderView else { return nil }
-                if let newUser = newUser {
+                if let newUser = currentUser {
                     header.setup(fullName: newUser.fullName, avatarimage: newUser.avatarImage, status: newUser.status)}
                 
                 let tapOnAvatarImageGusture = UITapGestureRecognizer(target: self, action: #selector(tapOnAvatarImage))
