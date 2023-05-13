@@ -84,7 +84,7 @@ class FeedViewController: UIViewController {
         
         setupConstraints()
     }
-    
+    //MARK: - Constraint
     private func setupConstraints() {
         NSLayoutConstraint.activate([
             stackView.heightAnchor.constraint(equalToConstant: 200),

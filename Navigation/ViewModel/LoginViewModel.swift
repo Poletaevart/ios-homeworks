@@ -10,24 +10,44 @@ import Foundation
 class LoginViewModel {
     static var loginFactoryDelegate: LoginFactory?
     
+    let coordinator: ProfileCoordinator?
+    
     var loginFactory: LoginFactory
     var loginedUser: User? {
         didSet {
             self.checkerIsLaunched?(self)
         }
     }
-    
+    enum LoginError: Error {
+        case emptyFields
+        case invalidCredentials
+    }
+
     var checkerIsLaunched: ((LoginViewModel) -> ())?
     
     init(model: LoginFactory) {
         self.loginFactory = model
     }
     
-    func startChecker(login: String, pass: String) {
+//    func startChecker(login: String, pass: String) {
+//        if loginFactory.makeLoginInspector().check(login: login, pass: pass) {
+//            loginedUser = Checker.shared.user
+//        } else {
+//            loginedUser = nil
+//        }
+//    }
+    
+    func buttonTapped(login: String, pass: String) throws {
+        guard !login.isEmpty, !pass.isEmpty else {
+            throw LoginError.emptyFields
+        }
+
         if loginFactory.makeLoginInspector().check(login: login, pass: pass) {
-            loginedUser = Checker.shared.user
+            let user = Checker.shared.user
+            coordinator?.toProfileViewController(with: loginedUser )
         } else {
-            loginedUser = nil
+            throw LoginError.invalidCredentials
         }
     }
+
 }
