@@ -93,7 +93,6 @@ class LogInViewController: UIViewController{
     }
     
     @objc func goToProfile() {
-//        viewModel.startChecker(login: loginTextField.text!, pass: passwordTextField.text!)
         do {
             try viewModel?.buttonTapped(login: loginTextField.text!, pass: passwordTextField.text!)
         } catch LoginViewModel.LoginError.emptyFields {
