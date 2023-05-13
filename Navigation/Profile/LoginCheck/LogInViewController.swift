@@ -10,7 +10,7 @@ import UIKit
 class LogInViewController: UIViewController{
     
     weak var coordinator: ProfileCoordinator?
-    var viewModel: LoginViewModel
+    var viewModel: LoginViewModel?
     
     private lazy var scrollView: UIScrollView = {
         let scrollView = UIScrollView()
@@ -95,7 +95,7 @@ class LogInViewController: UIViewController{
     @objc func goToProfile() {
 //        viewModel.startChecker(login: loginTextField.text!, pass: passwordTextField.text!)
         do {
-            try viewModel.buttonTapped(login: loginTextField.text!, pass: passwordTextField.text!)
+            try viewModel?.buttonTapped(login: loginTextField.text!, pass: passwordTextField.text!)
         } catch LoginViewModel.LoginError.emptyFields {
             let alert = UIAlertController(title: "Error", message: "Please enter both username and password", preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))

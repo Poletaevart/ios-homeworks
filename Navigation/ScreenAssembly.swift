@@ -25,7 +25,7 @@ func createPhoto() -> UIViewController {
 
 func createLogin(coordinator: ProfileCoordinator) -> UIViewController {
     let model = MyLoginFactory()
-    let viewModel = LoginViewModel(model: model)
+    let viewModel = LoginViewModel(model: MyLoginFactory(), coordinator: coordinator)
     let view = LogInViewController()
     view.coordinator = coordinator
 
