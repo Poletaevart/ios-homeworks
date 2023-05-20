@@ -13,10 +13,12 @@ class PhotosViewController: UIViewController {
     
     private var recivedImages: [UIImage] = []
     private let imageFasade = ImagePublisherFacade()
-    
+    private var startTime = Date()
+    private var imageProcessor: ImageProcessor?
+   
     var textTitle: String?
     
-    private let postImage = PostImage.setupImages()
+    private let postImage = PostImage.makeArrayImage()
     
     private enum Constants {
         static let numberOfLine: CGFloat = 3
@@ -45,19 +47,81 @@ class PhotosViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupCollectionView()
-        setupObserver()
+        setupImageProcessor()
     }
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
                 imageFasade.removeSubscription(for: self)
             }
        
-    private func setupObserver() {
-            imageFasade.subscribe(self)
-            imageFasade.addImagesWithTimer(time: 0.5 , repeat: 20 )
-
+    private func setupImageProcessor() {
+        let imageProcessor = ImageProcessor()
+        //MARK: userInitiated - 0.6 секунды
+        imageProcessor.processImagesOnThread(sourceImages: PostImage.makeArrayImage(countPhoto: 10, startIndex: 5), filter: .bloom(intensity: 30), qos: .userInteractive) { cgImages in
+            for image in cgImages {
+                self.recivedImages.append(UIImage(cgImage: image!))
+            }
+            DispatchQueue.main.async {
+                self.collectionView.reloadData()
+            }
+            print("Загрузка \(Date().timeIntervalSince(self.startTime)) секунд(ы)")
         }
-    
+        
+//        //MARK: userInitiated - 1.31 секунды
+//        imageProcessor.processImagesOnThread(sourceImages: postImage, filter: .bloom(intensity: 30), qos: .userInteractive) { cgImages in
+//            for image in cgImages {
+//                self.recivedImages.append(UIImage(cgImage: image!))
+//            }
+//            DispatchQueue.main.async {
+//                self.collectionView.reloadData()
+//            }
+//            print("Загрузка \(Date().timeIntervalSince(self.startTime)) секунд(ы)")
+//        }
+        
+//        //MARK: userInitiated - 1.29 секунды
+//        imageProcessor.processImagesOnThread(sourceImages: postImage, filter: .bloom(intensity: 30), qos: .userInitiated) { cgImages in
+//            for image in cgImages {
+//                self.recivedImages.append(UIImage(cgImage: image!))
+//            }
+//            DispatchQueue.main.async {
+//                self.collectionView.reloadData()
+//            }
+//            print("Загрузка \(Date().timeIntervalSince(self.startTime)) секунд(ы)")
+//        }
+//
+//        //MARK: default - 1.15секунды
+//        imageProcessor.processImagesOnThread(sourceImages: postImage, filter: .motionBlur(radius: 60), qos: .default) { cgImages in
+//            for image in cgImages {
+//                self.recivedImages.append(UIImage(cgImage: image!))
+//            }
+//            DispatchQueue.main.async {
+//                self.collectionView.reloadData()
+//            }
+//            print("Загрузка \(Date().timeIntervalSince(self.startTime)) секунд(ы)")
+//        }
+        
+//        //MARK: background - 4.76 секунды
+//        imageProcessor.processImagesOnThread(sourceImages: postImage, filter: .vignette(intensity: 70, radius: 30), qos: .background) { cgImages in
+//            for image in cgImages {
+//                self.recivedImages.append(UIImage(cgImage: image!))
+//            }
+//            DispatchQueue.main.async {
+//                self.collectionView.reloadData()
+//            }
+//            print("Загрузка \(Date().timeIntervalSince(self.startTime)) секунд(ы)")
+//        }
+
+        //MARK: utility - 1.07 секунды
+//        imageProcessor.processImagesOnThread(sourceImages: postImage, filter: .noir, qos: .utility) { cgImages in
+//            for image in cgImages {
+//                self.recivedImages.append(UIImage(cgImage: image!))
+//            }
+//            DispatchQueue.main.async {
+//                self.collectionView.reloadData()
+//            }
+//            print("Загрузка \(Date().timeIntervalSince(self.startTime)) секунд(ы)")
+//        }
+    }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         title = textTitle
